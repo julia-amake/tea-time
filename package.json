@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:ts": "eslint \"**/*.{ts,tsx}\"",
+    "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "stylelint \"**/*.{css,scss}\"",
     "lint:scss:fix": "stylelint \"**/*.{scss,scss}\" --fix"
   },
@@ -22,6 +24,7 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.15",
+    "eslint-plugin-unused-imports": "^4.1.4",
     "sass": "^1.79.5",
     "stylelint": "^16.10.0",
     "stylelint-config-recess-order": "^5.1.1",
