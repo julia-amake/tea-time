@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import '@/app/styles/index.scss';
 
 export const metadata: Metadata = {
-  title: 'Tea Time',
-  description: 'Интернет-магазин на Next.js',
+  title: 'Tea Time — больше, чем просто чай',
+  description: 'Интернет-магазин чая с доставкой на дом',
 };
 
 type RootLayoutProps = Readonly<{
