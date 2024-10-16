@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import type { Metadata } from 'next';
+import '@/app/styles/index.scss';
 
 export const metadata: Metadata = {
   title: 'Tea Time',
