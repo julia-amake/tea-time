@@ -1,0 +1,30 @@
+.outer {
+  display: flex;
+  align-items: center;
+}
+
+.pic {
+  width: 3.5em;
+  height: 3.5em;
+  margin-right: 0.75em;
+  object-fit: contain;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  margin: 0;
+}
+
+.title {
+  position: relative;
+  left: -0.125em;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.slogan {
+  font-size: 0.8125em;
+  font-weight: 300;
+}
