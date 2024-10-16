@@ -9,9 +9,11 @@
     "lint": "next lint",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
+    "type-check": "tsc --project tsconfig.json --pretty --noEmit && echo ",
     "lint:scss": "stylelint \"**/*.{css,scss}\"",
     "lint:scss:fix": "stylelint \"**/*.{scss,scss}\" --fix",
-    "prettier": "npx prettier --write \"**/*.{ts,tsx,json}\""
+    "prettier": "npx prettier --write \"**/*.{ts,tsx,json}\"",
+    "prepare": "husky install"
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",
@@ -28,6 +30,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-unused-imports": "^4.1.4",
+    "lint-staged": "^15.2.10",
     "sass": "^1.79.5",
     "stylelint": "^16.10.0",
     "stylelint-config-prettier-scss": "^1.0.0",
@@ -35,6 +38,21 @@
     "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-order": "^6.0.4",
     "stylelint-scss": "^6.7.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "husky": "^8.0.0"
+  },
+  "lint-staged": {
+    "**/*.ts?(x)": [
+      "prettier --write",
+      "eslint",
+      "npm run type-check"
+    ],
+    "./*.md": [
+      "prettier --write"
+    ],
+    "**/*.{css,scss}": [
+      "prettier --write",
+      "stylelint"
+    ]
   }
 }
