@@ -1,0 +1,32 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-recess-order"
+  ],
+  "plugins": [
+    "stylelint-scss",
+    "stylelint-order"
+  ],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "selector-class-pattern": null,
+    "color-function-notation": "legacy",
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": [
+          "global",
+          "local"
+        ]
+      }
+    ],
+    "scss/no-global-function-names": null,
+    "declaration-no-important": true,
+    "max-nesting-depth": 1,
+    "number-max-precision": 2,
+    "selector-max-specificity": "0,2,1",
+    "selector-max-type": 1,
+    "declaration-empty-line-before": "never"
+  }
+}
