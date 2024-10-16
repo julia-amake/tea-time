@@ -10,7 +10,8 @@
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "stylelint \"**/*.{css,scss}\"",
-    "lint:scss:fix": "stylelint \"**/*.{scss,scss}\" --fix"
+    "lint:scss:fix": "stylelint \"**/*.{scss,scss}\" --fix",
+    "prettier": "npx prettier --write \"**/*.{ts,tsx,json}\""
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",
@@ -24,9 +25,12 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.15",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-unused-imports": "^4.1.4",
     "sass": "^1.79.5",
     "stylelint": "^16.10.0",
+    "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-recess-order": "^5.1.1",
     "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-order": "^6.0.4",

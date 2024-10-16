@@ -1,12 +1,16 @@
 {
   "extends": [
     "next/core-web-vitals",
-    "next/typescript"
+    "next/typescript",
+    "prettier",
+    "plugin:prettier/recommended"
   ],
   "plugins": [
-    "unused-imports"
+    "unused-imports",
+    "prettier"
   ],
   "rules": {
+    "prettier/prettier": "error",
     "unused-imports/no-unused-imports": "error",
     "import/order": [
       "error",
