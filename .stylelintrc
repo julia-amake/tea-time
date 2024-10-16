@@ -25,8 +25,8 @@
     "scss/no-global-function-names": null,
     "declaration-no-important": true,
     "max-nesting-depth": 1,
-    "number-max-precision": 2,
-    "selector-max-specificity": "0,2,1",
+    "number-max-precision": 4,
+    "selector-max-specificity": "0,3,1",
     "selector-max-type": 1,
     "declaration-empty-line-before": "never"
   }
