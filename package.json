@@ -16,6 +16,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
     "autoprefixer": "^10.4.20",
     "next": "14.2.15",
     "normalize.css": "^8.0.1",
