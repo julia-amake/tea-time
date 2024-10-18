@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { APP_NAME, APP_SLOGAN } from '@/shared/consts/appInfo';
 import { ROUTS } from '@/shared/consts/routes';
 import s from './Logo.module.scss';
-import logoIcon from './logo.svg';
 
 interface LogoProps {
   className?: string;
@@ -14,7 +13,14 @@ interface LogoProps {
 export const Logo = memo(({ className }: LogoProps) => {
   return (
     <Link className={cn(s.outer, className)} href={ROUTS.MAIN}>
-      <Image className={s.pic} src={logoIcon} alt={APP_NAME} loading="eager" />
+      <Image
+        className={s.pic}
+        src="/img/logo.svg"
+        alt={APP_NAME}
+        loading="eager"
+        width={56}
+        height={56}
+      />
       <p className={s.info}>
         <strong className={s.title}>{APP_NAME}</strong>
         <span className={s.slogan}>{APP_SLOGAN}</span>
