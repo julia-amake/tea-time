@@ -1,13 +1,20 @@
 import { ReactNode } from 'react';
+import cn from 'clsx';
 import type { Metadata } from 'next';
 import '@/app/styles/index.scss';
-import { Montserrat } from 'next/font/google';
+import { Montserrat, Rubik } from 'next/font/google';
 import { APP_DESCRIPTION, APP_NAME, APP_SLOGAN } from '@/shared/consts/appInfo';
 import { Header } from '@/widgets/Header';
 
-const montserrat = Montserrat({
+const main = Montserrat({
   subsets: ['cyrillic', 'latin'],
   variable: '--font-main',
+  display: 'swap',
+});
+
+const secondary = Rubik({
+  subsets: ['cyrillic', 'latin'],
+  variable: '--font-secondary',
   display: 'swap',
 });
 
@@ -23,9 +30,9 @@ type RootLayoutProps = Readonly<{
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="ru">
-      <body className={montserrat.className}>
+      <body className={cn(main.variable, secondary.variable)}>
         <Header />
-        {children}
+        <main>{children}</main>
       </body>
     </html>
   );

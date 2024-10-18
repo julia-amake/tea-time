@@ -1,8 +1,19 @@
 @import 'normalize.css';
+@import 'variables';
+
+html {
+  height: 100%;
+}
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-main);
+  color: var(--color-main);
+  background: var(--color-main-inverted);
 }
 
 img {
@@ -20,6 +31,7 @@ a {
 button {
   padding: 0;
   margin: 0;
+  color: inherit;
   letter-spacing: inherit;
   cursor: pointer;
   background: none;
