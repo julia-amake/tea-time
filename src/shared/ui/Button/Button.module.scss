@@ -1,0 +1,79 @@
+.outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  cursor: auto;
+
+  $sizes:
+    's' (2px 8px) 12px 4px 4px,
+    'm' (6px 14px) 13px 8px 8px,
+    'l' (10px 18px) 15px 12px 8px;
+  @each $sizeName, $padding, $font-size, $border-radius, $gap in $sizes {
+    &_size-#{$sizeName} {
+      gap: $gap;
+      padding: $padding;
+      font-size: $font-size;
+      border-radius: $border-radius;
+    }
+  }
+
+  $variants:
+    'primary' var(--color-main-inverted) null var(--color-accent) var(--color-accent-dark)
+      var(--color-accent) var(--color-accent-dark),
+    'secondary' var(--color-main) var(--color-main-inverted) var(--color-main-inverted)
+      var(--color-main) var(--color-gray-light) var(--color-main),
+    'text' inherit null transparent var(--color-accent-light) transparent var(--color-accent-light);
+  @each $variant, $color, $color-hover, $bg, $bg-hover, $border, $border-hover in $variants {
+    &_variant-#{$variant} {
+      color: $color;
+      background-color: $bg;
+      border: 2px solid $border;
+
+      &.outer_clickable:hover {
+        @if $color-hover {
+          color: $color-hover;
+        }
+
+        @if $bg-hover {
+          background-color: $bg-hover;
+        }
+
+        @if $border-hover {
+          border-color: $border-hover;
+        }
+      }
+    }
+  }
+
+  &_clickable {
+    cursor: pointer;
+  }
+
+  &_disabled {
+    opacity: 0.5;
+  }
+
+  &_full {
+    width: 100%;
+  }
+}
+
+.icon {
+  fill: currentcolor;
+
+  @each $size, $value in ('s' 16px, 'm' 22px, 'l' 24px) {
+    &_size-#{$size} {
+      width: $value;
+      height: $value;
+    }
+  }
+
+  &_right {
+    order: 2;
+  }
+}

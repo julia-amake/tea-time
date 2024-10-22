@@ -1,0 +1,105 @@
+import { ReactNode } from 'react';
+import cn from 'clsx';
+import Link from 'next/link';
+import { typedMemo } from '@/shared/lib/utils/typedMemo';
+import LoadingIcon from '@/shared/assets/icons/Loading.svg';
+import s from './Button.module.scss';
+
+type ButtonType = 'button' | 'link' | 'a';
+type ButtonSize = 's' | 'm' | 'l';
+type ButtonVariant = 'primary' | 'secondary' | 'text';
+type ButtonIconPosition = 'left' | 'right';
+
+export type ButtonProps<T> = {
+  /**
+   * "button" (дефолтное) для кнопок,
+   * "link" для ссылок внутри приложения,
+   * "а" для внешних ссылок
+   */
+  as?: T;
+  size?: ButtonSize;
+  variant?: ButtonVariant;
+  isLoading?: boolean;
+  full?: boolean;
+  className?: string;
+  icon?: SVGType;
+  iconPosition?: ButtonIconPosition;
+  iconClassName?: string;
+  children?: ReactNode;
+  disabled?: boolean;
+  type?: T extends 'button' ? 'button' | 'submit' | 'reset' : never;
+  onClick?: T extends 'button' ? () => void : never;
+  /**
+   * Укажите as="link" (для ссылок внутри приложения)
+   * или as="а" (для внешних ссылок)
+   */
+  href?: T extends 'button' ? never : string;
+};
+
+export const Button = typedMemo(<T extends ButtonType = 'button'>(props: ButtonProps<T>) => {
+  const {
+    as = 'button',
+    size = 'm',
+    variant = 'primary',
+    full,
+    isLoading,
+    children,
+    icon,
+    iconPosition,
+    iconClassName,
+    disabled,
+    className,
+    type,
+    onClick,
+    href,
+  } = props;
+
+  const Icon = isLoading ? LoadingIcon : icon;
+
+  if (!children && !Icon) return null;
+
+  const outerClassNames = cn(
+    className,
+    s.outer,
+    s[`outer_size-${size}`],
+    s[`outer_variant-${variant}`],
+    {
+      [s.outer_disabled]: disabled || isLoading,
+      [s.outer_clickable]: !disabled && !isLoading && (href || onClick),
+      [s.outer_full]: full,
+    },
+  );
+
+  const iconClassNames = cn(iconClassName, s.icon, s[`icon_size-${size}`], {
+    [s.icon_right]: iconPosition === 'right',
+  });
+
+  const content = (
+    <>
+      {Icon && <Icon className={iconClassNames} />}
+      {children && <span>{children}</span>}
+    </>
+  );
+
+  if (as === 'button')
+    return (
+      <button
+        className={outerClassNames}
+        disabled={disabled || isLoading}
+        type={type}
+        onClick={onClick}
+      >
+        {content}
+      </button>
+    );
+
+  if (!href) return <div className={outerClassNames}>{content}</div>;
+
+  const Elem = as === 'a' ? 'a' : Link;
+
+  return (
+    <Elem className={outerClassNames} href={href}>
+      {content}
+    </Elem>
+  );
+});
