@@ -6,9 +6,9 @@ import { APP_NAME, APP_SLOGAN } from '@/shared/consts/appInfo';
 import { ROUTS } from '@/shared/consts/routes';
 import s from './Logo.module.scss';
 
-interface LogoProps {
+type LogoProps = {
   className?: string;
-}
+};
 
 export const Logo = memo(({ className }: LogoProps) => {
   return (
