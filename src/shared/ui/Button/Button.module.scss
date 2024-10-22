@@ -3,22 +3,31 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
+  min-width: 24px;
   font-family: var(--font-secondary);
   font-weight: 700;
   line-height: 24px;
-  letter-spacing: -0.01em;
   cursor: auto;
 
   $sizes:
-    's' (2px 8px) 12px 4px 4px,
-    'm' (6px 14px) 13px 8px 8px,
-    'l' (10px 18px) 15px 12px 8px;
-  @each $sizeName, $padding, $font-size, $border-radius, $gap in $sizes {
+    's' 4px 8px 12px 4px 4px,
+    'm' 6px 14px 13px 8px 8px,
+    'l' 10px 18px 15px 12px 8px;
+  @each $sizeName, $padding-v, $padding-h, $font-size, $border-radius, $gap in $sizes {
     &_size-#{$sizeName} {
       gap: $gap;
-      padding: $padding;
+      padding: $padding-v $padding-h $padding-v $padding-h;
       font-size: $font-size;
       border-radius: $border-radius;
+
+      &.outer_rounded {
+        border-radius: 90px;
+      }
+
+      &.outer_iconOnly {
+        padding-right: $padding-v;
+        padding-left: $padding-v;
+      }
     }
   }
 
@@ -60,6 +69,10 @@
 
   &_full {
     width: 100%;
+  }
+
+  &_upper {
+    text-transform: uppercase;
   }
 }
 

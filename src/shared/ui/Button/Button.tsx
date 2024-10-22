@@ -21,6 +21,8 @@ export type ButtonProps<T> = {
   variant?: ButtonVariant;
   isLoading?: boolean;
   full?: boolean;
+  upper?: boolean;
+  rounded?: boolean;
   className?: string;
   icon?: SVGType;
   iconPosition?: ButtonIconPosition;
@@ -41,6 +43,8 @@ export const Button = typedMemo(<T extends ButtonType = 'button'>(props: ButtonP
     as = 'button',
     size = 'm',
     variant = 'primary',
+    rounded,
+    upper,
     full,
     isLoading,
     children,
@@ -67,6 +71,9 @@ export const Button = typedMemo(<T extends ButtonType = 'button'>(props: ButtonP
       [s.outer_disabled]: disabled || isLoading,
       [s.outer_clickable]: !disabled && !isLoading && (href || onClick),
       [s.outer_full]: full,
+      [s.outer_iconOnly]: !children,
+      [s.outer_rounded]: rounded,
+      [s.outer_upper]: upper,
     },
   );
 
