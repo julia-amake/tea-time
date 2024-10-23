@@ -32,11 +32,14 @@
   }
 
   $variants:
-    'primary' var(--color-main-inverted) null var(--color-accent) var(--color-accent-dark)
+    'primary' var(--color-main-inverted) var(--color-main) var(--color-main)
+      var(--color-main-inverted) var(--color-main) var(--color-gray-light),
+    'accent' var(--color-main-inverted) null var(--color-accent) var(--color-accent-dark)
       var(--color-accent) var(--color-accent-dark),
     'secondary' var(--color-main) var(--color-main-inverted) var(--color-main-inverted)
       var(--color-main) var(--color-gray-light) var(--color-main),
-    'text' inherit null transparent var(--color-accent-light) transparent var(--color-accent-light);
+    'text' inherit null transparent var(--color-gray-extralight) transparent
+      var(--color-gray-extralight);
   @each $variant, $color, $color-hover, $bg, $bg-hover, $border, $border-hover in $variants {
     &_variant-#{$variant} {
       color: $color;

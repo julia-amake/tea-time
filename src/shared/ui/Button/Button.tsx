@@ -7,7 +7,7 @@ import s from './Button.module.scss';
 
 type ButtonType = 'button' | 'link' | 'a';
 type ButtonSize = 's' | 'm' | 'l';
-type ButtonVariant = 'primary' | 'secondary' | 'text';
+type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'text';
 type ButtonIconPosition = 'left' | 'right';
 
 export type ButtonProps<T> = {
