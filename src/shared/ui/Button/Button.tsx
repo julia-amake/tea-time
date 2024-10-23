@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactElement } from 'react';
 import cn from 'clsx';
 import Link from 'next/link';
 import { typedMemo } from '@/shared/lib/utils/typedMemo';
@@ -27,7 +27,12 @@ export type ButtonProps<T> = {
   icon?: SVGType;
   iconPosition?: ButtonIconPosition;
   iconClassName?: string;
-  children?: ReactNode;
+  /**
+   * Если содержит несколько элементов,
+   * их нужно обернуть в общую обертку,
+   * чтобы не добавлялись лишние отступы между этими элементами
+   */
+  children?: string | string[] | ReactElement;
   disabled?: boolean;
   type?: T extends 'button' ? 'button' | 'submit' | 'reset' : never;
   onClick?: T extends 'button' ? () => void : never;
@@ -84,7 +89,7 @@ export const Button = typedMemo(<T extends ButtonType = 'button'>(props: ButtonP
   const content = (
     <>
       {Icon && <Icon className={iconClassNames} />}
-      {children && <span>{children}</span>}
+      {children && children}
     </>
   );
 
