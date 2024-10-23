@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import '@/app/styles/index.scss';
 import { Montserrat, Rubik } from 'next/font/google';
 import { APP_DESCRIPTION, APP_NAME, APP_SLOGAN } from '@/shared/consts/appInfo';
-import { Header } from '@/widgets/Header';
+import { Header } from '@/widgets/Header/ui/Header/Header';
 
 const main = Montserrat({
   subsets: ['cyrillic', 'latin'],
@@ -32,7 +32,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
     <html lang="ru">
       <body className={cn(main.variable, secondary.variable)}>
         <Header />
-        <main>{children}</main>
+        <main style={{ height: 3000 }}>{children}</main>
       </body>
     </html>
   );
