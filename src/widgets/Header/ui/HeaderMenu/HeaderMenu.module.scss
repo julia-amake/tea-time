@@ -1,0 +1,25 @@
+.outer {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+
+  &:hover {
+    color: var(--color-accent);
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  fill: currentcolor;
+}
