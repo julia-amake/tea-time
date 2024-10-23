@@ -1,0 +1,30 @@
+.outer {
+  flex-grow: 1;
+  opacity: 0.2;
+}
+
+.horizontal {
+  height: 1px;
+}
+
+.vertical {
+  width: 1px;
+}
+
+.full {
+  background: currentcolor;
+}
+
+@each $orientation, $dir in ('horizontal' right, 'vertical' bottom) {
+  .#{$orientation}-middle {
+    background: linear-gradient(
+      to $dir,
+      transparent 0%,
+      transparent 20%,
+      currentcolor 20%,
+      currentcolor 80%,
+      transparent 80%,
+      transparent 100%
+    );
+  }
+}
