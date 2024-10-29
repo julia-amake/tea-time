@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import '@/app/styles/index.scss';
 import { Montserrat, Rubik } from 'next/font/google';
 import { APP_DESCRIPTION, APP_NAME, APP_SLOGAN } from '@/shared/consts/appInfo';
-import { Header } from '@/widgets/Header/ui/Header/Header';
+import { Header } from '@/widgets/Header';
 
 const main = Montserrat({
   subsets: ['cyrillic', 'latin'],
