@@ -110,7 +110,11 @@ export const Button = typedMemo(<T extends ButtonType = 'button'>(props: ButtonP
   const Elem = as === 'a' ? 'a' : Link;
 
   return (
-    <Elem className={outerClassNames} href={href}>
+    <Elem
+      className={outerClassNames}
+      href={href}
+      {...(as === 'a' ? { rel: 'noopener noreferrer' } : {})}
+    >
       {content}
     </Elem>
   );
