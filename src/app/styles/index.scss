@@ -9,11 +9,12 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
   font-family: var(--font-main);
   color: var(--color-main);
   background: var(--color-main-inverted);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img {
