@@ -1,0 +1,15 @@
+.outer {
+  position: relative;
+  display: flex;
+}
+
+.sidebar {
+  position: sticky;
+  top: var(--height-header);
+  flex: 0 0 240px;
+  align-self: flex-start;
+}
+
+.main {
+  flex: 1 1 auto;
+}
