@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
 import cn from 'clsx';
-import { Container } from '@/shared/ui/Container/Container';
-import { Logo } from '@/shared/ui/Logo/Logo';
+import { Container, Logo } from '@/shared/ui';
 import { HeaderMenu } from '../HeaderMenu/HeaderMenu';
 import { HeaderShadow } from './HeaderShadow';
 import s from './Header.module.scss';
