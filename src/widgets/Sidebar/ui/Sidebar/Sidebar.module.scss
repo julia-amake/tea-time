@@ -1,0 +1,22 @@
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.item {
+  padding-right: 0.5em;
+  border-radius: 0.75em;
+
+  &:hover {
+    background: var(--color-gray-extralight);
+  }
+}
+
+.link {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  font-size: 0.875em;
+  font-weight: 500;
+}
