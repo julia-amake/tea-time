@@ -2,6 +2,7 @@
 import React, { ReactNode, useEffect, useRef } from 'react';
 import cn from 'clsx';
 import { getCssVariableValue } from '@/shared/lib/utils';
+import { Container } from '@/shared/ui';
 import s from './ContentLayout.module.scss';
 
 type ContentLayoutProps = {
@@ -79,11 +80,11 @@ export const ContentLayout = ({ sidebar, children, className }: ContentLayoutPro
   }, []);
 
   return (
-    <div className={cn(s.outer, className)}>
+    <Container className={cn(s.outer, className)}>
       <aside className={s.sidebar} ref={asideRef}>
         {sidebar}
       </aside>
       <main className={s.main}>{children}</main>
-    </div>
+    </Container>
   );
 };
