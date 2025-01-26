@@ -1,13 +1,18 @@
 .outer {
   display: flex;
   align-items: center;
-  justify-content: center;
   width: fit-content;
   min-width: 24px;
   font-family: var(--font-secondary);
   font-weight: 700;
   line-height: 24px;
   cursor: auto;
+
+  @each $textPosition, $value in ('center' center, 'left' flex-start, 'right' flex-end) {
+    &_text-#{$textPosition} {
+      justify-content: $value;
+    }
+  }
 
   $sizes:
     's' 4px 8px 12px 4px 4px,

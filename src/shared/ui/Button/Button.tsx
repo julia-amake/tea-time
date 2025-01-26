@@ -8,6 +8,7 @@ import s from './Button.module.scss';
 type ButtonType = 'button' | 'link' | 'a';
 type ButtonSize = 's' | 'm' | 'l';
 type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'text';
+type ButtonTextPosition = 'center' | 'left' | 'right';
 type ButtonIconPosition = 'left' | 'right';
 
 export type ButtonProps<T> = {
@@ -19,6 +20,7 @@ export type ButtonProps<T> = {
   as?: T;
   size?: ButtonSize;
   variant?: ButtonVariant;
+  textPosition?: ButtonTextPosition;
   isLoading?: boolean;
   full?: boolean;
   upper?: boolean;
@@ -53,6 +55,7 @@ export const Button = typedMemo(<T extends ButtonType = 'button'>(props: ButtonP
     full,
     isLoading,
     children,
+    textPosition = 'center',
     icon,
     iconPosition,
     iconClassName,
@@ -72,6 +75,7 @@ export const Button = typedMemo(<T extends ButtonType = 'button'>(props: ButtonP
     s.outer,
     s[`outer_size-${size}`],
     s[`outer_variant-${variant}`],
+    s[`outer_text-${textPosition}`],
     {
       [s.outer_disabled]: disabled || isLoading,
       [s.outer_clickable]: !disabled && !isLoading && (href || onClick),
@@ -119,3 +123,5 @@ export const Button = typedMemo(<T extends ButtonType = 'button'>(props: ButtonP
     </Elem>
   );
 });
+
+Object.defineProperty(Button, 'displayName', { value: 'Button' });
