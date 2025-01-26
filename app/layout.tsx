@@ -9,13 +9,13 @@ import { Header } from '@/widgets/Header';
 import { Sidebar } from '@/widgets/Sidebar';
 
 const main = Montserrat({
-  subsets: ['cyrillic', 'latin'],
+  subsets: ['cyrillic'],
   variable: '--font-main',
   display: 'swap',
 });
 
 const secondary = Rubik({
-  subsets: ['cyrillic', 'latin'],
+  subsets: ['cyrillic'],
   variable: '--font-secondary',
   display: 'swap',
 });
