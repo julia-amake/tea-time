@@ -1,0 +1,16 @@
+@mixin scrollbar($color: var(--color-gray-light)) {
+  overflow: hidden auto;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background: var(--color-gray-light);
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color;
+    border: 1px solid $color;
+    border-radius: 2px;
+  }
+}
