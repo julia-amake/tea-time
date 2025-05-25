@@ -1,0 +1,66 @@
+.outer {
+  position: relative;
+  width: fit-content;
+
+  &_full {
+    width: 100%;
+  }
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: -1;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 164px;
+  max-height: 17.7em;
+  overflow: auto;
+  pointer-events: none;
+  background: var(--color-main-inverted);
+  border-radius: 12px;
+  box-shadow:
+    0 4px 8px -4px rgba(0, 0, 0, 25%),
+    inset 0 2px 0 0 rgba(255, 255, 255, 25%),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 4%);
+  opacity: 0;
+
+  $sizes:
+    's' 12px 4px,
+    'm' 13px 8px,
+    'l' 15px 12px;
+  @each $sizeName, $font-size, $border-radius in $sizes {
+    &_size-#{$sizeName} {
+      font-size: $font-size;
+    }
+  }
+
+  @include scrollbar;
+
+  &_active {
+    z-index: var(--z-index-dropdown);
+    pointer-events: auto;
+    opacity: 1;
+  }
+}
+
+.option {
+  padding: 1.2em 0.86em;
+  font-weight: 600;
+
+  &:hover,
+  &_active {
+    background: var(--color-gray-extralight);
+  }
+
+  &:not(.disabled):hover {
+    cursor: pointer;
+  }
+}
+
+.input {
+  display: none;
+}

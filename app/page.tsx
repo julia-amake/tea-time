@@ -1,6 +1,13 @@
+import { Breadcrumbs } from '@/shared/ui';
+
 const Home = () => {
   return (
-    <div>Home</div>
+    <Breadcrumbs
+      list={[
+        { name: 'Home', link: '/' },
+        { name: 'Abount', link: '/about' },
+      ]}
+    />
   );
 };
 

@@ -1,0 +1,20 @@
+.outer {
+  position: relative;
+
+  &_hovered::after {
+    width: 100%;
+    height: 12px;
+    content: '';
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+
+  &_closed {
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+  }
+}
