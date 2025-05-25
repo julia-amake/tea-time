@@ -12,13 +12,13 @@
     "type-check": "tsc --project tsconfig.json --pretty --noEmit && echo ",
     "lint:scss": "stylelint \"**/*.{css,scss}\"",
     "lint:scss:fix": "stylelint \"**/*.{scss,scss}\" --fix",
-    "prettier": "npx prettier --write \"**/*.{ts,tsx,json}\"",
-    "prepare": "husky install"
+    "prettier": "npx prettier --write \"**/*.{ts,tsx,json}\""
   },
   "dependencies": {
     "@svgr/webpack": "^8.1.0",
     "autoprefixer": "^10.4.20",
     "client-only": "^0.0.1",
+    "lefthook": "^1.11.13",
     "next": "14.2.15",
     "normalize.css": "^8.0.1",
     "react": "^18",
@@ -35,7 +35,6 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-unused-imports": "^4.1.4",
-    "husky": "^8.0.0",
     "lint-staged": "^15.2.10",
     "sass": "^1.79.5",
     "stylelint": "^16.10.0",
@@ -45,19 +44,5 @@
     "stylelint-order": "^6.0.4",
     "stylelint-scss": "^6.7.0",
     "typescript": "^5"
-  },
-  "lint-staged": {
-    "**/*.ts?(x)": [
-      "prettier --write",
-      "eslint",
-      "npm run type-check"
-    ],
-    "./*.md": [
-      "prettier --write"
-    ],
-    "**/*.{css,scss}": [
-      "prettier --write",
-      "stylelint"
-    ]
   }
 }

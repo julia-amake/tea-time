@@ -1,0 +1,12 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint-ts:
+      glob: "**/*.{ts,tsx}"
+      run: npx prettier --write {staged_files} && npx eslint {staged_files} && npm run type-check
+    lint-md:
+      glob: "**/*.md"
+      run: npx prettier --write {staged_files}
+    lint-css:
+      glob: "**/*.{css,scss}"
+      run: npx prettier --write {staged_files} && npx stylelint {staged_files}
